@@ -2,7 +2,7 @@
 const mocha         = require("mocha");
 const assert        = require("assert");
 const User          = require("../Models/User");
-
+const app           = require("../app.js");
 
 //describe tests
 describe("saving to DBase", function(){
@@ -16,18 +16,12 @@ describe("saving to DBase", function(){
             // userState       : "New",
             // //dateInit        :"07/04/2018",
             // stateOfResidence:"Florida"
-        }, function(err){
-            if(err){
-                console.log(err.message);
-            }
         });
         //save new User instance
         newUser.save().then(function(){
+            //newUser.isNew === false
             assert(newUser.isNew === false);
             done();
-        }).catch(function(err){
-            console.log(err.message);
-            done(err);
         });
     });//end it("saves a record to DB", function(){...
 });
