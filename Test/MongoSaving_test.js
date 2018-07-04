@@ -7,7 +7,7 @@ const app           = require("../app.js");     //runs as an iffe when "required
 //describe tests
 describe("saving to DBase", function(){
     //create tests
-    it("saves a record to DB", function(done){
+    it("save a record to DB", function(done){
         //create new User
         //this.timeout(15000);
         var newUser = new User({
