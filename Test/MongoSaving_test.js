@@ -12,7 +12,7 @@ describe("saving to DBase", function(){
         var newUser = new User({
             //username      : notRequired, uses email if nothing entered
             email           :"test@gmail.com",
-            //userState     : default
+            userState       : "New",
             dateInit        :"07/04/2018",
             stateOfResidence:"Florida"
         });
@@ -20,6 +20,8 @@ describe("saving to DBase", function(){
         newUser.save().then(function(){
             assert(newUser.isNew === false);
             done();
+        }).catch(function(err){
+            console.log(err.message);
         });
     });//end it("saves a record to DB", function(){...
 });
