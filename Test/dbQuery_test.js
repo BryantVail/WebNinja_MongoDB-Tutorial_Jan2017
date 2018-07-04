@@ -3,11 +3,13 @@ const assert        = require("assert");
 const User          = require("../Models/User");
 const app           = require("../config/connection");
 
-describe("finding Users",function(){
 
+describe("finding Users",function(){
+    
+    let newUser;
     //mocha hooks
     beforeEach(function(done){
-        let newUser = new User({
+        newUser = new User({
             username            :"TestUser",
             email               :"TestEmail@gmail.com",
             stateOfResidence    :"FL"
@@ -34,6 +36,15 @@ describe("finding Users",function(){
         User.findOne({username:"TestUser"}).then(function(data){
             assert(data.username === "TestUser");
             done();
+        });
+    });
+
+    //find by id
+    it("find by ObjectId",function(done){
+        User.findOne({_id:newUser._id}).then(function(data){
+            assert(data._id.toString() === newUser._id.toString());
+            done();
+            //end test
         });
     });
 
