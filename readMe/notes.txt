@@ -10,9 +10,10 @@ npm init
 
 //end       video 2
 //start     video 3
-Connect to Mongo
-
-
+    Connect to Mongo
+        mongoose.connect("mongodb://localhost/shirtOrderLocal");
+        //if directory used does not exist, the directory will be created to be used
+        //.once == eventListener
 
 
 
