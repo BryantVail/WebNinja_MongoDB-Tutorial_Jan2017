@@ -1,8 +1,8 @@
 //MongoDB_test.js
-const mocha         = require("mocha");
+const mocha         = require("mocha");         //not required/needed
 const assert        = require("assert");
 const User          = require("../Models/User");
-const app           = require("../app.js");
+const app           = require("../app.js");     //runs as an iffe when "required".
 
 //describe tests
 describe("saving to DBase", function(){

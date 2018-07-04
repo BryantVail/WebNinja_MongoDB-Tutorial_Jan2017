@@ -58,5 +58,9 @@ mongoose.connect(uri, options).then(
         });
 }
 
+//end 1-6 Mocha
+//start 1-7 ES6 Promises
 
+    mocha hooks
+        a function which tells mocha to run a section of code before/after the test (for environment purposes).
 
