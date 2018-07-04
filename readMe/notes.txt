@@ -23,12 +23,32 @@ const PrintedItem = mongoose.Model("PrintedItem",PrintedItemSchema);
 
 module.exports = PrintedItem;
 
+mongoose.connect(uri, options, function(error) {
+  // Check error in initial connection. There is no 2nd param to the callback.
+});
+
+// Or using promises
+mongoose.connect(uri, options).then(
+  () => { /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ },
+  err => { /** handle initial connection error */ }
+);
+
 //end       video 4
 //start     video 5
 
+    Mocha Testing Framework
 
+    //"./Test/MongoDB_tests.js"
+    
+    //MongoDB_test.js
+    const Mocha         = require("mocha");
 
+    //describe tests
+    describe("saving to DBase", function(){
+        //create tests
+    });
 
+    "it" blocks
 
 
 

@@ -1,0 +1,28 @@
+{
+  "name": "webninja_mongodb-tutorial_jan2017",
+  "version": "1.0.0",
+  "description": "MongoDB Tutorial, NetNinja, ",
+  "main": "app.js",
+  "dependencies": {
+    "eslint": "^5.0.1",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.0",
+    "mongoose": "^5.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "testdb": "mocha" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryantVail/WebNinja_MongoDB-Tutorial_Jan2017.git"
+  },
+  "author": "Bryant V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryantVail/WebNinja_MongoDB-Tutorial_Jan2017/issues"
+  },
+  "homepage": "https://github.com/BryantVail/WebNinja_MongoDB-Tutorial_Jan2017#readme"
+}
