@@ -1,0 +1,23 @@
+2 directories need to be made for MongoDB
+    1. c:/data
+    2. c:/data/db
+
+run:    mongod.exe*
+    This starts the service
+
+mongoose install
+npm init
+
+//end       video 2
+//start     video 3
+
+
+
+
+
+
+
+
+
+
+
