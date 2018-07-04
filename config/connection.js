@@ -6,7 +6,7 @@ module.exports = (function(){
 
     mongoose.connection.once("open", function(){
         //.once == eventListener
-        console.log("Connection mongodb, 'mongoose.connection', done");
+        console.log("Connection mongodb, 'mongoose.connection'");
     }).on("error", function(error){
         console.log(`Connection error: ${error.message}`);
     });

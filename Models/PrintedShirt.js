@@ -56,7 +56,7 @@ const PrintedItemSchema = new Schema({
     },
 });
 
-const PrintedItem = mongoose.Model("PrintedItem",PrintedItemSchema);
+const PrintedItem = mongoose.model("PrintedItem",PrintedItemSchema);
 
 module.exports = PrintedItem;
 
