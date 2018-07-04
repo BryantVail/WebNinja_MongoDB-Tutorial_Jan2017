@@ -64,3 +64,11 @@ mongoose.connect(uri, options).then(
     mocha hooks
         a function which tells mocha to run a section of code before/after the test (for environment purposes).
 
+//end video 1-7
+//robomongo video 8
+
+    visual representation
+
+robomongo
+
+
