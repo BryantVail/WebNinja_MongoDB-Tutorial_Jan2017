@@ -8,24 +8,24 @@ const UserSchema          = new Schema({
         type        : String,
         required    : true
     },
-    // email:{
-    //     type        : String,
-    //     required    : true
-    // },
-    // userState:{//new, active, inactive
-    //     type        : String,
-    //     required    : true,
-    //     default     : "New"
-    // },
-    // dateInit:{
-    //     type        : Date,
-    //     required    : true,
-    //     default     : Date.now
-    // },
-    // stateOfResidence:{
-    //     type        : String,
-    //     required    : true
-    // }
+    email:{
+        type        : String,
+        required    : true
+    },
+    userState:{//new, active, inactive
+        type        : String,
+        required    : true,
+        default     : "New"
+    },
+    dateInit:{
+        type        : Date,
+        required    : true,
+        default     : Date.now
+    },
+    stateOfResidence:{
+        type        : String,
+        required    : true
+    }
 });
 
 const User = mongoose.model("User", UserSchema);

@@ -11,11 +11,11 @@ describe("saving to DBase", function(){
         //create new User
         //this.timeout(15000);
         var newUser = new User({
-            username      : "BryantV"
-            // email           :"test@gmail.com",
-            // userState       : "New",
-            // //dateInit        :"07/04/2018",
-            // stateOfResidence:"Florida"
+            username      : "BryantV",
+            email           :"test@gmail.com",
+            userState       : "New",
+            dateInit        :"07/04/2018",
+            stateOfResidence:"Florida"
         }, function(err){
             if(err){
                 console.log(err.message);
