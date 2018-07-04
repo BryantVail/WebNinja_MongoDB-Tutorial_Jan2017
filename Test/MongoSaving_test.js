@@ -2,7 +2,7 @@
 const mocha         = require("mocha");
 const assert        = require("assert");
 const User          = require("../Models/User");
-
+const app           = require("../app.js");
 
 //describe tests
 describe("saving to DBase", function(){
