@@ -15,6 +15,17 @@ npm init
         //if directory used does not exist, the directory will be created to be used
         //.once == eventListener
 
+//end       video 3
+//start     video 4
+
+const PrintedItemSchema = new Schema({...});
+const PrintedItem = mongoose.Model("PrintedItem",PrintedItemSchema);
+
+module.exports = PrintedItem;
+
+//end       video 4
+//start     video 5
+
 
 
 
