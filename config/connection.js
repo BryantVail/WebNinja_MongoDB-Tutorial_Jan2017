@@ -7,7 +7,7 @@ module.exports = (function(){
 
     //Connect to db before test is run
     before(function(done){
-        mongoose.connect("mongodb://localhost:27017/shirtOrderLocal");
+        mongoose.connect("mongodb://localhost:27017/shirtOrderLocal_test");
         //if directory used does not exist, the directory will be created to be used
         mongoose.connection.once("open", function(){
             //.once == eventListener
@@ -16,5 +16,17 @@ module.exports = (function(){
         }).on("error", function(error){
             console.log(`Connection error: ${error.message}`);
         });
+    });
+
+
+    //Drop Characters Collection before each test
+    beforeEach(function(done){
+        //Drop Collection
+        mongoose.connection.collections.users.drop(function(){
+            done();
+        });
+
+
+
     });
 })();
