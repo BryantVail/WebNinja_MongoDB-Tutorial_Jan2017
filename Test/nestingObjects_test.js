@@ -7,7 +7,11 @@ const Author        = require("../Models/Author");
 
 describe("nested Objects, Author>Books", function(){
     let newAuthor;
-    it("create nested record & access books within an Author", function(done){
+
+    beforeEach(function(done){
+        mongoose.connection.collections.authors.drop(function(){
+        });
+
         newAuthor = new Author({
             name:"Roger",
             age: 35,
@@ -17,17 +21,22 @@ describe("nested Objects, Author>Books", function(){
         });
 
         newAuthor.save().then(function(){
-            Author.findOne({name: "Roger"}).then(function(data){
-                assert(data.books.length === 1);
-                done();
-            });
-        }).catch(function(err){
-            console.log(err);
+            done();
+        });
+    });
+
+
+    it("create nested record & access books within an Author", function(done){
+        
+        Author.findOne({name: "Roger"}).then(function(data){
+            assert(data.books.length === 1);
+            done();
         });
     }); //end it("create nested record")
 
+    //add book to existing author
     it("add book to existing Author", function(done){
-        Author.findOne({_id: newAuthor._id}).then(function(data){
+        Author.findOne({name: "Roger"}).then(function(data){
             //add book to existing books array/ author
             data.books.push({title:"carry on old man", pageCount:566, yearPublished: Date(1990)});
             data.save().then(function(){
