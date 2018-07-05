@@ -11,17 +11,19 @@ describe("finding Users",function(){
     beforeEach(function(done){
         newUser = new User({
             username            :"TestUser",
-            email               :"TestEmail@gmail.com",
+            email               :"testEmail@email.com",
             stateOfResidence    :"FL"
         });
 
         newUser.save().then(function(){
             assert(newUser.isNew === false);
             done();
+        }).catch(function(err){
+            console.log(err);
         });
     });
 
-    //'it' statement
+    //'it' "finds all users"
     it("finds all users", function(done){
         //find users
         User.find({}).then(function(data){

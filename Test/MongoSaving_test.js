@@ -12,7 +12,7 @@ describe("saving to DBase", function(){
         //this.timeout(15000);
         var newUser = new User({
             username      : "BryantV",
-            email           :"test@gmail.com",
+            email           :"testEmail@email.com",
             userState       : "New",
             dateInit        :"07/04/2018",
             stateOfResidence:"Florida"

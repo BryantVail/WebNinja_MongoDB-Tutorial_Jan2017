@@ -4,45 +4,68 @@
 const assert        = require("assert");
 const User          = require("../Models/User");
 
-//beforeEach(), mocha hook
-//create user
-beforeEach(function(done){
-    newUser = new User({
-        username        : "TestUser",
-        email           : "testEmail@email.com",
-        stateOfResidence: "FL"
-    });
 
-    newUser.save().then(function(){
-        done();
-    });
-});
 
 //Update DB test Suite
 describe("Update DB Records Test Suite",function(){
+
+    let newUser;
+    //beforeEach(), mocha hook
+    //create user
+    beforeEach(function(done){
+        newUser = new User({
+            username        : "TestUser",
+            email           : "testEmail@email.com",
+            stateOfResidence: "FL"
+        });
+
+        newUser.save().then(function(){
+            done();
+        });
+    });
+
     // 'instance'.update()
     it("'instance'.update()",function(done){
 
-        newUser.update({email: "BryantV@gmail.com"}).then(function(){
-            User.findOne({email: "BryantV@gmail.com"}).then(function(data){
-                assert(data.email === "BryantV@gmail.com");
+        newUser.update({email: newUser.email}, {userState: "active"}).then(function(){
+            User.findOne({email: newUser.email}).then(function(data){
+                assert(data.userState === "active");
+                
                 done();
+            }).catch(function(err){
+                console.log(err);
+                console.log(data);
             });
         });
     });
     
     // 'Model'.update()
     it("'Model'.update()",function(done){
-
+        User.update({email : newUser.email}, {username: "BryantV"}, function(){
+            User.findOne({email : newUser.email}).then(function(data){
+                assert(data.username === "BryantV");
+                done();
+            }).catch(function(err){
+                console.log(err);
+            });
+        });
     });
     
     // 'Model'.findOneAndUpdate
     it("'Model'.findOneAndUpdate", function(done){
-        User.findOneAndUpdate({email : "testEmail@gmail.com"})
+        User.findOneAndUpdate({email : newUser.email}, {username: "BryantV"}).
+            then(function(){
+                User.findOne({_id : newUser._id}).then(function(data){
+                    assert(data.username == "BryantV");
+                    done();
+                });
+            }).catch(function(err){
+                console.log(err);
+            });
 
-    })
+    });
     
-})
+});
 
 
 
