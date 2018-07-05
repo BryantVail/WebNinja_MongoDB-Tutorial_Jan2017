@@ -1,7 +1,7 @@
 //dbQuery_test.js
 const assert        = require("assert");
 const User          = require("../Models/User");
-const app           = require("../config/connection");
+//const app           = require("../config/connection");
 
 
 describe("finding Users",function(){
