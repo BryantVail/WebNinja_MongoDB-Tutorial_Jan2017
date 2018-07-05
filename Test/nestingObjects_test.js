@@ -6,8 +6,6 @@ const Author        = require("../Models/Author");
 
 
 describe("nested Objects, Author>Books", function(){
-
-
     let newAuthor;
     it("create nested record & access books within an Author", function(done){
         newAuthor = new Author({
@@ -26,12 +24,21 @@ describe("nested Objects, Author>Books", function(){
         }).catch(function(err){
             console.log(err);
         });
+    }); //end it("create nested record")
+
+    it("add book to existing Author", function(done){
+        Author.findOne({_id: newAuthor._id}).then(function(data){
+            //add book to existing books array/ author
+            data.books.push({title:"carry on old man", pageCount:566, yearPublished: Date(1990)});
+            data.save().then(function(){
+                Author.findOne({_id:newAuthor._id}).then(function(data){
+                    assert(data.books.length === 2);
+                    done();
+                });
+            });
+        });
     });
-
-
-    //test 1
-    
-})
+});//end describe
 
 
 
