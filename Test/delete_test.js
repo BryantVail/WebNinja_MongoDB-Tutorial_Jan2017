@@ -46,10 +46,19 @@ describe("Deleting Records suite", function(){
                 done();
             });
         });
-
-
-
     });//end it("remove 1 record using Model level function",
+
+    //test 'Model'.findOneAndRemove()
+    it("'Model'.findOneAndRemove()",function(done){
+        User.findOneAndRemove({username : "TestUser"}).then(function(){
+            User.findOne({username : "TestUser"}).then(function(data){
+                assert( data === null);
+                done();
+            });            
+        }).catch(function(err){
+            console.log(err);
+        });
+    });
 });
 
 
