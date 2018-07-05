@@ -25,6 +25,11 @@ const UserSchema          = new Schema({
     stateOfResidence:{
         type        : String,
         required    : true
+    },
+    creditRating:{
+        type            : Number,
+        required        : true,
+        default         : 1
     }
 });
 

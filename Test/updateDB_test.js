@@ -27,9 +27,9 @@ describe("Update DB Records Test Suite",function(){
     // 'instance'.update()
     it("'instance'.update()",function(done){
 
-        newUser.update({email: newUser.email}, {userState: "active"}).then(function(){
-            User.findOne({email: newUser.email}).then(function(data){
-                assert(data.userState === "active");
+        newUser.update({_id: newUser._id}, {creditRating : 2}).then(function(){
+            User.findOne({_id: newUser._id}).then(function(data){
+                assert(data.creditRating === 2);
                 
                 done();
             }).catch(function(err){
@@ -53,7 +53,7 @@ describe("Update DB Records Test Suite",function(){
     
     // 'Model'.findOneAndUpdate
     it("'Model'.findOneAndUpdate", function(done){
-        User.findOneAndUpdate({email : newUser.email}, {username: "BryantV"}).
+        User.findOneAndUpdate({email : newUser.email}, {username: "BryantV"}, {}).
             then(function(){
                 User.findOne({_id : newUser._id}).then(function(data){
                     assert(data.username == "BryantV");
