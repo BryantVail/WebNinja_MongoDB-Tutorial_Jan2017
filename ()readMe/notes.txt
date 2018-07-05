@@ -72,3 +72,9 @@ mongoose.connect(uri, options).then(
 robomongo
 
 
+
+///////////////////
+//video 14
+
+    increment Operator: "{$inc : {weight: 1}}
+

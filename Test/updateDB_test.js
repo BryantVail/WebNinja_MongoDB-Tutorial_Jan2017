@@ -25,19 +25,19 @@ describe("Update DB Records Test Suite",function(){
     });
 
     // 'instance'.update()
-    it("'instance'.update()",function(done){
+    // it("'instance'.update()",function(done){
 
-        newUser.update({_id: newUser._id}, {creditRating : 2}).then(function(){
-            User.findOne({_id: newUser._id}).then(function(data){
-                assert(data.creditRating === 2);
+    //     newUser.update({_id: newUser._id}, {creditRating : 2}).then(function(){
+    //         User.findOne({_id: newUser._id}).then(function(data){
+    //             assert(data.creditRating === 2);
                 
-                done();
-            }).catch(function(err){
-                console.log(err);
-                console.log(data);
-            });
-        });
-    });
+    //             done();
+    //         }).catch(function(err){
+    //             console.log(err);
+    //             console.log(data);
+    //         });
+    //     });
+    // });
     
     // 'Model'.update()
     it("'Model'.update()",function(done){
@@ -63,7 +63,17 @@ describe("Update DB Records Test Suite",function(){
                 console.log(err);
             });
 
-    });
+    });//end it("'Model'.findOneAndUpdate", () =>{})
+
+    it("updateOperators increment", function(done){
+        
+        User.update({}, {$inc:{creditRating :1}}).then(function(){
+            User.findOne({_id: newUser._id}).then(function(data){
+                assert(data.creditRating === (newUser.creditRating + 1));
+                done();
+            });
+        });//end User.update({}, {$inc:{creditRating :1}}
+    });//end it()
     
 });
 
